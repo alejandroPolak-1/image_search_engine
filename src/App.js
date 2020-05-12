@@ -7,19 +7,28 @@ function App() {
   const [search, setSearch] = useState('')
   const [images, setImages] = useState([])
 
+  //It will tell us what page we are on
+  const [actualpage, setActualPage] = useState(1)
+  //It will tell us how many pages there are in total
+   const [totalpages, setTotalPages] = useState(1)
+
   //Consulting Api
   useEffect(() => {
     //prevent search empty
     if (search === '') return
 
     const consultAPI = async () => {
-      const imageForPage = 50
+      const imageForPage = 30
       const APIkey= "13456201-848fe7fea9d1f25e15a5cb7c7"
       const url = `https://pixabay.com/api/?key=${APIkey}&q=${search}&per_page=${imageForPage}`
 
       const response = await fetch(url)
       const result= await response.json()
       setImages(result.hits)
+
+      //calculate total pages
+      const calculateTotalPages= Math.ceil(result.totalHits / imageForPage)
+      setTotalPages(calculateTotalPages)
     }
     consultAPI()
   }, [search])
