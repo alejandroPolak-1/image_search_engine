@@ -29,6 +29,10 @@ function App() {
       //calculate total pages
       const calculateTotalPages = Math.ceil(result.totalHits / imageForPage)
       setTotalPages(calculateTotalPages)
+
+      //move screen up when you press the button
+      const jumbotron = document.querySelector('.jumbotron')
+      jumbotron.scrollIntoView({ behavior: 'auto' })
     }
     consultAPI()
   }, [actualpage, search])
@@ -56,6 +60,7 @@ function App() {
         <p className="lead text-center">Image Search Engine</p>
         <Form setSearch={setSearch} />
       </div>
+
       <div className="row justify-content-center">
         <ListImage images={images} />
 
