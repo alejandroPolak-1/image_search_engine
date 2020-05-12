@@ -60,9 +60,10 @@ function App() {
         <p className="lead text-center">Image Search Engine</p>
         <Form setSearch={setSearch} />
       </div>
-
       <div className="row justify-content-center">
-        <ListImage images={images} />
+        <ListImage 
+             images={images} 
+        />
 
         {actualpage === 1 ? null : (
           <button
@@ -75,7 +76,11 @@ function App() {
         )}
 
         {actualpage === totalpages ? null : (
-          <button type="button" className="btn btn-info" onClick={afterPage}>
+          <button 
+              type="button" 
+              className="btn btn-info"                    
+              onClick={afterPage}
+          >
             After &raquo;
           </button>
         )}

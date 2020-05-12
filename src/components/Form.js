@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Error from './Error.js'
+import PropTypes from 'prop-types'
+
 
 const Form = ({ setSearch }) => {
   //put in the state what is put in the input
@@ -44,6 +46,11 @@ const Form = ({ setSearch }) => {
       {error ? <Error message="add a search term" /> : null}
     </form>
   )
+}
+
+//Documentation
+Form.propTypes={
+    setSearch: PropTypes.func.isRequired
 }
 
 export default Form
