@@ -45,7 +45,7 @@ function App() {
   const afterPage = () => {
     const newActualPage = actualpage + 1
 
-    if(newActualPage > totalpages) return
+    if (newActualPage > totalpages) return
 
     setActualPage(newActualPage)
   }
@@ -58,16 +58,22 @@ function App() {
       </div>
       <div className="row justify-content-center">
         <ListImage images={images} />
-        <button
-          type="button"
-          className="btn btn-info mr-1"
-          onClick={previewPage}
-        >
-          &laquo; Previous
-        </button>
-        <button type="button" className="btn btn-info" onClick={afterPage}>
-          After &raquo;
-        </button>
+
+        {actualpage === 1 ? null : (
+          <button
+            type="button"
+            className="btn btn-info mr-1"
+            onClick={previewPage}
+          >
+            &laquo; Previous
+          </button>
+        )}
+
+        {actualpage === totalpages ? null : (
+          <button type="button" className="btn btn-info" onClick={afterPage}>
+            After &raquo;
+          </button>
+        )}
       </div>
     </div>
   )
