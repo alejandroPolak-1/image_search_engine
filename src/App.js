@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from './components/Form'
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
         <p className="lead text-center">
           Image Search Engine
         </p>
+        <Form />
       </div>
     </div>
   );
