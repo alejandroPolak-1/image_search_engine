@@ -20,7 +20,7 @@ function App() {
     const consultAPI = async () => {
       const imageForPage = 30
       const APIkey = '13456201-848fe7fea9d1f25e15a5cb7c7'
-      const url = `https://pixabay.com/api/?key=${APIkey}&q=${search}&per_page=${imageForPage}`
+      const url = `https://pixabay.com/api/?key=${APIkey}&q=${search}&per_page=${imageForPage}&page=${actualpage}`
 
       const response = await fetch(url)
       const result = await response.json()
@@ -31,7 +31,7 @@ function App() {
       setTotalPages(calculateTotalPages)
     }
     consultAPI()
-  }, [search])
+  }, [actualpage, search])
 
   //define the previous page
   const previewPage = () => {
